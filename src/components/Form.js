@@ -9,10 +9,10 @@ state = {
   phone:""
 }
 
-handleSubmit = () => {
-  Event.preventDefault()
+handleSubmit = (e) => {
+  e.preventDefault()
   const data = JSON.stringify({...this.state})
-  fetch ('localhost: 4000', {
+  fetch ('http://localhost:4000', {
     method: 'POST',
     body: data,
     headers: {
@@ -34,11 +34,11 @@ handleSubmit = () => {
         <br/>
         <br/>
         <form onSubmit={this.handleSubmit}>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Name</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Name</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Name"
@@ -46,27 +46,27 @@ handleSubmit = () => {
             />
             
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Address</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Address</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
               placeholder="Address"
               onChange={e => this.setState({address: e.target.value})}
             />
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Phone</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Phone</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
               placeholder="Phone"
               onChange={e => this.setState({phone: e.target.value})}
             />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>
